@@ -20,11 +20,6 @@ export default function Content({
     blogs: object[];
 }) {
 
-
-    // const images = blogs.map((blog: any) => blog.images)
-    // console.log(images)
-    // console.log(blogs);
-
     return (
 
         <div>
@@ -47,6 +42,7 @@ export default function Content({
                                     className="text-[20px] md:text-3xl lg:text-3xl xl:text-[32px] leading-[30px] mb-5 md:mb-0 font-spectral font-semibold  text-gray-800 dark:text-slate-200 block">
                                     {blog.title}
                                 </a>
+
 
                                 <div className="flex flex-wrap justify-between mt-auto">
                                     <div className="flex items-center">
