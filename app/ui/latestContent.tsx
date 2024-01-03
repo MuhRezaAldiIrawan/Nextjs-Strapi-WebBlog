@@ -9,6 +9,8 @@ export default function Content({
     blogs: object[];
 }) {
 
+    const IMAGE_URL = process.env.IMAGE_URL;
+
     return (
 
         <div>
@@ -18,7 +20,7 @@ export default function Content({
                     <div className="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mt-3">
                         <div className="col-span-12 sm:col-span-6  md:col-span-4 lg:col-span-4 xl:col-span-4 ">
                             {/* <h1>{blog.images.url}</h1> */}
-                            <Image width={500} height={500} alt="blog images" src={"http://localhost:1337" + blog.images.url} />
+                            <Image width={500} height={500} alt="blog images" src={IMAGE_URL + blog.images.url} />
                         </div>
                         <div className="col-span-12 sm:col-span-6  md:col-span-8 lg:col-span-8 xl:col-span-8 ">
                             <div className=" h-full flex flex-col p-3">
@@ -34,7 +36,7 @@ export default function Content({
                                 <div className="flex flex-wrap justify-between mt-auto">
                                     <div className="flex items-center">
                                         <div className="w-8 h-8 rounded">
-                                            <Image className="w-full h-full overflow-hidden object-cover rounded object-center" width={500} height={500} alt="blog images" src={"http://localhost:1337" + blog.author.image.url} />
+                                            <Image className="w-full h-full overflow-hidden object-cover rounded object-center" width={500} height={500} alt="blog images" src={IMAGE_URL + blog.author.image.url} />
                                         </div>
                                         <div className="ml-2">
                                             <a

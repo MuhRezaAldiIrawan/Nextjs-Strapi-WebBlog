@@ -14,7 +14,7 @@ export async function getLatestBlog(query: string, currentPage: number) {
 
     const queryObject = qs.stringify({
         sort: ["date:desc"],
-        populate:{
+        populate: {
             images: {
                 fields: ["url"],
             },
@@ -83,7 +83,7 @@ export async function getRelatedBlog(query: string, currentPage: number) {
 
     const queryObject = qs.stringify({
         sort: ["date:asc"],
-        populate:{
+        populate: {
             images: {
                 fields: ["url"],
             },
@@ -143,6 +143,39 @@ export async function getRelatedBlog(query: string, currentPage: number) {
     } catch (error) {
         console.error("Database Error:", error);
         throw new Error("Failed to fetch Blog.");
+    }
+}
+
+export async function fetchBlogById(id: string) {
+
+    const query = qs.stringify({
+        populate: {
+            images: {
+                fields: ["url"],
+            },
+            genres: {
+                fields: ["id", "title"],
+            },
+            author: {
+                populate: {
+                    image: {
+                        fields: ["url"],
+                    },
+                }
+            }
+        },
+    });
+
+    try {
+        const data = await fetch(STRAPI_URL + "/api/blogs/" + id + "?" + query, {
+            cache: "no-store",
+        });
+        const blog = await data.json();
+        const flatten = flattenAttributes(blog.data);
+        return flatten;
+    } catch (err) {
+        console.error("Database Error:", err);
+        throw new Error("Failed to fetch all customers.");
     }
 }
 

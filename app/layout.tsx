@@ -5,6 +5,7 @@ import '@/public/css/tailwind.min.css'
 import '@/public/libs/icofont/icofont.min.css'
 
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
