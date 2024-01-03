@@ -8,12 +8,12 @@ const STRAPI_URL = process.env.STRAPI_URL;
 
 
 //** fetching data blog **//
-const ITEMS_PER_PAGE = 3;
-export async function getDataBlog(query: string, currentPage: number) {
+const ITEMS_LATEST = 3;
+export async function getLatestBlog(query: string, currentPage: number) {
     noStore();
 
     const queryObject = qs.stringify({
-        sort: ["date:asc"],
+        sort: ["date:desc"],
         populate:{
             images: {
                 fields: ["url"],
@@ -31,7 +31,7 @@ export async function getDataBlog(query: string, currentPage: number) {
         },
 
         pagination: {
-            pageSize: ITEMS_PER_PAGE,
+            pageSize: ITEMS_LATEST,
             page: currentPage,
         },
         filters: {
@@ -53,6 +53,9 @@ export async function getDataBlog(query: string, currentPage: number) {
                         name: {
                             $contains: query,
                         },
+                        address: {
+                            $contains: query,
+                        }
                     },
                 }
             ],
@@ -74,21 +77,72 @@ export async function getDataBlog(query: string, currentPage: number) {
     }
 }
 
-export async function fetchGenres() {
+const ITEMS_RELATED = 6;
+export async function getRelatedBlog(query: string, currentPage: number) {
+    noStore();
 
-    const query = qs.stringify({
-        populate: {
-            fields: ["id", "title"],
+    const queryObject = qs.stringify({
+        sort: ["date:asc"],
+        populate:{
+            images: {
+                fields: ["url"],
+            },
+            genres: {
+                fields: ["id", "title"],
+            },
+            author: {
+                populate: {
+                    image: {
+                        fields: ["url"],
+                    },
+                }
+            }
         },
+
+        pagination: {
+            pageSize: ITEMS_RELATED,
+            page: currentPage,
+        },
+        filters: {
+            $or: [
+                {
+                    title: {
+                        $contains: query,
+                    },
+                },
+                {
+                    genres: {
+                        title: {
+                            $contains: query,
+                        },
+                    },
+                },
+                {
+                    author: {
+                        name: {
+                            $contains: query,
+                        },
+                        address: {
+                            $contains: query,
+                        }
+                    },
+                }
+            ],
+        },
+        // populate: ["genres", "images"]
     });
+
     try {
-        const data = await fetch(STRAPI_URL + "/api/genres?" + query);
-        const customers = await data.json();
-        const flatten = flattenAttributes(customers.data);
-        // console.log(flatten);
-        return flatten;
-    } catch (err) {
-        console.error("Database Error:", err);
-        throw new Error("Failed to fetch all customers.");
+        const response = await fetch(STRAPI_URL + "/api/blogs?" + queryObject, {
+            cache: "no-store",
+        });
+        const data = await response.json();
+        console.log(data);
+        const flattened = flattenAttributes(data.data);
+        return { data: flattened, meta: data.meta };
+    } catch (error) {
+        console.error("Database Error:", error);
+        throw new Error("Failed to fetch Blog.");
     }
 }
+

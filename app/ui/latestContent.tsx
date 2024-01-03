@@ -1,17 +1,6 @@
 import Image from "next/image";
+import { Readmore } from "./components/actionButton";
 
-interface Blog {
-    date: string;
-    title: string;
-    author: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    images: { url: string; id: number }[];
-    genres: { title: string; id: number }[];
-    id: number;
-}
 
 export default function Content({
     blogs,
@@ -29,7 +18,7 @@ export default function Content({
                     <div className="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mt-3">
                         <div className="col-span-12 sm:col-span-6  md:col-span-4 lg:col-span-4 xl:col-span-4 ">
                             {/* <h1>{blog.images.url}</h1> */}
-                            <Image width={500} height={500} alt="blog images" src={"http://localhost:1337"+blog.images.url} />
+                            <Image width={500} height={500} alt="blog images" src={"http://localhost:1337" + blog.images.url} />
                         </div>
                         <div className="col-span-12 sm:col-span-6  md:col-span-8 lg:col-span-8 xl:col-span-8 ">
                             <div className=" h-full flex flex-col p-3">
@@ -42,12 +31,10 @@ export default function Content({
                                     className="text-[20px] md:text-3xl lg:text-3xl xl:text-[32px] leading-[30px] mb-5 md:mb-0 font-spectral font-semibold  text-gray-800 dark:text-slate-200 block">
                                     {blog.title}
                                 </a>
-
-
                                 <div className="flex flex-wrap justify-between mt-auto">
                                     <div className="flex items-center">
                                         <div className="w-8 h-8 rounded">
-                                            <Image className="w-full h-full overflow-hidden object-cover rounded object-center" width={500} height={500}  alt="blog images" src={"http://localhost:1337"+blog.author.image.url}/>
+                                            <Image className="w-full h-full overflow-hidden object-cover rounded object-center" width={500} height={500} alt="blog images" src={"http://localhost:1337" + blog.author.image.url} />
                                         </div>
                                         <div className="ml-2">
                                             <a
@@ -56,13 +43,10 @@ export default function Content({
                                             </a>
                                             <p
                                                 className="focus:outline-none text-gray-500 dark:text-gray-400 text-xs font-medium">
-                                                San Diego, California</p>
+                                                {blog.author.address}</p>
                                         </div>
                                     </div>
-                                    <a href=""
-                                        className="block text-slate-500 dark:text-slate-400 hover:text-slate-600 underline decoration-1 decoration-dashed underline-offset-4  decoration-primary-500 font-medium  focus:outline-none self-center">Read
-                                        More <i data-lucide="arrow-right"
-                                            className="self-center inline-block ms-1 h-4 w-4"></i></a>
+                                    <Readmore id={blog.id} />
                                 </div>
                             </div>
                         </div>
