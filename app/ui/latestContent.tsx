@@ -20,13 +20,13 @@ export default function Content({
                     <div className="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mt-3">
                         <div className="col-span-12 sm:col-span-6  md:col-span-4 lg:col-span-4 xl:col-span-4 ">
                             {/* <h1>{blog.images.url}</h1> */}
+                            
                             <Image width={500} height={500} alt="blog images" src={IMAGE_URL + blog.images.url} />
                         </div>
                         <div className="col-span-12 sm:col-span-6  md:col-span-8 lg:col-span-8 xl:col-span-8 ">
                             <div className=" h-full flex flex-col p-3">
                                 <div className="w-full block">
-                                    <span
-                                        className="text-[12px] bg-pink-500/10 text-pink-500 dark:text-pink-600 rounded font-medium py-1 px-2 inline-block mb-3">{blog.genres[0].title}</span>
+                                    <span className="text-[12px] bg-pink-500/10 text-pink-500 dark:text-pink-600 rounded font-medium py-1 px-2 inline-block mb-3">{blog.genres[0].title}</span>
                                     <span className="text-slate-700 dark:text-slate-300 font-medium text-xs ms-2">{blog.date}</span>
                                 </div>
                                 <a href="#"

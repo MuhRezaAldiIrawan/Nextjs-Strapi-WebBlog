@@ -12,10 +12,10 @@ export default function Navbar() {
                                 <a href="index.html" className="logo">
                                     <span>
                                         <Image src="/images/logo-sm.png" alt="logo-small"
-                                            className="logo-sm h-8 align-middle inline-block" width={35} height={40} />
+                                            className="logo-sm h-8 align-middle inline-block" width={35} height={40} style={{ height: "auto", width: "auto" }} />
                                     </span>
                                     <span className="self-center">
-                                        <Image src="/images/logo-dark.png" alt="logo-large" className="logo-lg logo-dark inline-block dark:hidden ms-1 group-data-[sidebar=dark]:hidden" width={70} height={70} />
+                                        <Image src="/images/logo-dark.png" alt="logo-large" className="logo-lg logo-dark inline-block dark:hidden ms-1 group-data-[sidebar=dark]:hidden" width={70} height={70} style={{ height: "auto", width: "auto" }}/>
                                     </span>
                                 </a>
                             </div>

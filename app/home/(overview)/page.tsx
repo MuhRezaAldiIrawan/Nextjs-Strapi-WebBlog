@@ -1,10 +1,12 @@
 // import Navbar from "../ui/navbar"
 // import Hero from "../ui/hero"
-import Tags from "../ui/tags"
-import RelatedPost from "../ui/relatedpost"
-import Content from "../ui/latestContent"
-import RelatedContent from "../ui/relatedContent"
-import { getLatestBlog, getRelatedBlog } from "../api/blogs"
+import Tags from "../../ui/tags"
+import RelatedPost from "../../ui/relatedpost"
+import Content from "../../ui/latestContent"
+import RelatedContent from "../../ui/relatedContent"
+import { getLatestBlog, getRelatedBlog } from "../../api/blogs"
+import { Suspense } from 'react';
+import { ContentSkeleton } from "@/app/ui/components/skeletons"
 
 export default async function Page({
     searchParams,
@@ -29,7 +31,9 @@ export default async function Page({
                 <div className="col-span-12 sm:col-span-12  md:col-span-12 lg:col-span-8 xl:col-span-9 ">
                     {/* <CreateBlogButton /> */}
                     <Tags />
-                    <Content blogs={blogs} currentPage={currentPage} />
+                    <Suspense fallback={<ContentSkeleton />}>
+                        <Content blogs={blogs} currentPage={currentPage} />
+                    </Suspense>
                     {/* Content start */}
                 </div>
                 <div className="col-span-12 sm:col-span-12  md:col-span-12 lg:col-span-4 xl:col-span-3 ">

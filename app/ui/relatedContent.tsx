@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function RelatedContent({
     relatedBlogs,
@@ -29,10 +30,10 @@ export default function RelatedContent({
                                     <span
                                         className="text-slate-700 dark:text-slate-300 font-medium text-xs ms-2">{blog.date}</span>
                                 </div>
-                                <a href="#"
+                                <Link href={`/home/${blog.id}/detail`}
                                     className="text-lg font-semibold  text-gray-600 dark:text-slate-200 block leading-5 truncate hover:underline hover:underline-offset-[4px]">
                                     {blog.title}
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

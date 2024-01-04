@@ -1,6 +1,8 @@
 import { fetchBlogById } from "@/app/api/blogs";
 import Image from "next/image";
 
+import { Input } from "@nextui-org/input";
+
 export default async function BlogDetail(
     {
         blogs
