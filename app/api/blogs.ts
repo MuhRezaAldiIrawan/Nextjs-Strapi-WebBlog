@@ -71,7 +71,7 @@ export async function getLatestBlog(query: string, currentPage: number) {
         });
         // console.log('Data fetch completed after 3 seconds.');
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
         const flattened = flattenAttributes(data.data);
         return { data: flattened, meta: data.meta };
     } catch (error) {
@@ -172,9 +172,16 @@ export async function fetchBlogById(id: string) {
     });
 
     try {
+
+        console.log('Fetching revenue data...');
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+
         const data = await fetch(STRAPI_URL + "/api/blogs/" + id + "?" + query, {
             cache: "no-store",
         });
+
+        console.log('Data fetch completed after 3 seconds.');
+
         const blog = await data.json();
         const flatten = flattenAttributes(blog.data);
         return flatten;

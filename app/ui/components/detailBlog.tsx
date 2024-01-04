@@ -18,7 +18,7 @@ export default async function BlogDetail(
         <>
             <div className="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4">
                 <div className="col-span-12 sm:col-span-6  md:col-span-4 lg:col-span-4 xl:col-span-4 ">
-                    <Image src={IMAGE_URL + blogs.images.url} alt="" className="max-w-full h-auto rounded-xl" width={500} height={500} />
+                    <Image src={IMAGE_URL + blogs.images.url} width={500} height={500} style={{ height:200}} alt="blog images"  className="max-w-full h-auto rounded-xl" />
                 </div>
                 <div className="col-span-12 sm:col-span-6  md:col-span-8 lg:col-span-8 xl:col-span-8 ">
                     <div className=" h-full flex flex-col p-3">
