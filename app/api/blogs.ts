@@ -173,7 +173,7 @@ export async function fetchBlogById(id: string) {
 
     try {
 
-        console.log('Fetching revenue data...');
+        console.log('Fetching BlogId data...');
         await new Promise((resolve) => setTimeout(resolve, 5000));
 
         const data = await fetch(STRAPI_URL + "/api/blogs/" + id + "?" + query, {
@@ -187,7 +187,7 @@ export async function fetchBlogById(id: string) {
         return flatten;
     } catch (err) {
         console.error("Database Error:", err);
-        throw new Error("Failed to fetch all customers.");
+        throw new Error("Failed to fetch data.");
     }
 }
 

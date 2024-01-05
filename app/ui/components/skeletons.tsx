@@ -25,7 +25,7 @@ export function DetailSkeleton() {
                                 <span className="text-slate-700 dark:text-slate-300 font-medium text-xs ms-2">date</span>
                             </div>
                             <a href="#" className="text-[20px] md:text-3xl lg:text-3xl xl:text-[32px] leading-[30px] mb-5 md:mb-0 font-spectral font-semibold  text-gray-800 dark:text-slate-200 block">
-                                title blog
+                                
                             </a>
                             <div className="flex flex-wrap justify-between mt-10">
                                 <div className="flex items-center">
@@ -43,7 +43,7 @@ export function DetailSkeleton() {
                     </div>
                 </div>
                 <div className=" dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl  w-full relative p-4 mb-4">
-                    <p className="mt-3 text-gray-500 dark:text-gray-900 "></p>
+                    <p className="mt-3 text-gray-500 dark:text-gray-900 bg-black ">Blog Content</p>
                 </div>
                 {/* <div>Ini loading untuk Skeleton Detail Blog</div> */}
             </div>
@@ -53,6 +53,7 @@ export function DetailSkeleton() {
 
 export function BreadcrumbsSkeleton() {
     return (
+        
         <h1 className="text-3xl bg-slate-800 mb-8 h-6 w-24 rounded ">Loading Breadcrumbs ....</h1>
     )
 }
