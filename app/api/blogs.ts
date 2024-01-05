@@ -173,15 +173,10 @@ export async function fetchBlogById(id: string) {
 
     try {
 
-        console.log('Fetching BlogId data...');
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-
         const data = await fetch(STRAPI_URL + "/api/blogs/" + id + "?" + query, {
             cache: "no-store",
         });
-
-        console.log('Data fetch completed after 3 seconds.');
-
+        
         const blog = await data.json();
         const flatten = flattenAttributes(blog.data);
         return flatten;
