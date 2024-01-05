@@ -11,7 +11,7 @@ export default async function BlogDetail(
 
     const IMAGE_URL = process.env.IMAGE_URL;
 
-    console.log(blogs);
+   
     return (
         <>
             <div className="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4">
