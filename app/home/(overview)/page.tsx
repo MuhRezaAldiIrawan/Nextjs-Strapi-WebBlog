@@ -6,6 +6,7 @@ import { getLatestBlog, getRelatedBlog } from "../../api/blogs"
 import { Suspense } from 'react';
 import { ContentSkeleton } from "@/app/ui/components/skeletons"
 import {AddBlog} from "../../ui/components/actionButton"
+import {fetchGenres} from "../../api/genre"
 
 
 
@@ -25,13 +26,18 @@ export default async function Page({
 
 
 
+
     return (
         <>
             <AddBlog />
             <div className="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
                 <div className="col-span-12 sm:col-span-12  md:col-span-12 lg:col-span-8 xl:col-span-9 ">
                     {/* <CreateBlogButton /> */}
-                    <Tags />
+                    <div className="col-span-12 sm:col-span-12  md:col-span-12 lg:col-span-8 xl:col-span-9  mt-5">
+                        <div className="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mb-4">
+                            <Tags />
+                        </div>
+                    </div>
                     <Suspense fallback={<ContentSkeleton />}>
                         <Content blogs={blogs} currentPage={currentPage} />
                     </Suspense>

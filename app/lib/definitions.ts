@@ -3,12 +3,20 @@ export type GenresField = {
     title: string
 }
 
+export type AuthorsField = {
+    id: number
+    name: string
+}
+
 export type BlogDetail = {
     id: string
     title: string
     content: string
     author: string
     date: string
-    genres: GenresField
+    genres: {
+        id: number
+        title: string
+    }
     images: { url: string }
 };

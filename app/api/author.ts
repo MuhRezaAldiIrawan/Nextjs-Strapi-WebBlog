@@ -7,15 +7,15 @@ const STRAPI_URL = process.env.STRAPI_URL;
 
 
 const ITEMS_LATEST = 3;
-export async function fetchGenres() {
+export async function fetchAuthors() {
     noStore();
     const query = qs.stringify({
         populate: {
-            fields: ["id", "title"],
+            fields: ["id", "name"],
         },
     });
     try {
-        const data = await fetch(STRAPI_URL + "/api/genres?" + query, {
+        const data = await fetch(STRAPI_URL + "/api/authors?" + query, {
             cache: "no-store",
         });
         const customers = await data.json();

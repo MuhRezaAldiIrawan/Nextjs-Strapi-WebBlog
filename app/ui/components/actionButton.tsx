@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import { PlusIcon } from "@radix-ui/react-icons"
 
+
 export function Readmore({ id }: { id: string }) {
     return (
         <Link href={`/home/${id}/detail`} className="block text-slate-500 dark:text-slate-400 hover:text-slate-600 underline decoration-1 decoration-dashed underline-offset-4  decoration-primary-500 font-medium  focus:outline-none self-center">

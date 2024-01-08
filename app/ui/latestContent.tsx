@@ -11,6 +11,10 @@ export default function Content({
 
     const IMAGE_URL = process.env.IMAGE_URL;
 
+    console.log(blogs);
+
+    
+
     return (
 
         <div>
@@ -19,8 +23,8 @@ export default function Content({
                 <div key={blog.id} className="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mt-8">
                     <div className="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mt-3">
                         <div className="col-span-12 sm:col-span-6  md:col-span-4 lg:col-span-4 xl:col-span-4 "> 
-                            <Image width={500} height={500} style={{ height:200}} alt="blog images" src={IMAGE_URL + blog.images.url} className="max-w-full h-auto rounded-xl"/>
-                        </div>
+                            <Image width={500} height={500} style={{ height:200}} alt="blog images" src={IMAGE_URL + blog.images.url} className="max-w-full h-auto rounded-xl"/>    
+                        </div> 
                         <div className="col-span-12 sm:col-span-6  md:col-span-8 lg:col-span-8 xl:col-span-8 ">
                             <div className=" h-full flex flex-col p-3">
                                 <div className="w-full block">

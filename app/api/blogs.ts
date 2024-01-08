@@ -138,7 +138,7 @@ export async function getRelatedBlog(query: string, currentPage: number) {
             cache: "no-store",
         });
         const data = await response.json();
-        console.log(data);
+
         const flattened = flattenAttributes(data.data);
         return { data: flattened, meta: data.meta };
     } catch (error) {
