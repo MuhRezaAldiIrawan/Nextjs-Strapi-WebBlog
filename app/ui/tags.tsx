@@ -1,6 +1,8 @@
 
 import Image from "next/image"
 export default function Tags() {
+
+    const dateFormatter = new Intl.DateTimeFormat('id', { day: 'numeric', month: 'long', weekday: "long", year: "numeric" });
     return (
         <div className="col-span-12 sm:col-span-12  md:col-span-12 lg:col-span-8 xl:col-span-9  mt-5">
         <div
@@ -11,7 +13,7 @@ export default function Tags() {
                     </span>
                 </p>
                 <p className="dark:text-slate-200">
-                    <span className="font-medium">Today </span>: 21 Augest 2023
+                    <span className="font-medium">Today </span>: {dateFormatter.format(new Date())}
                 </p>
             </div>
         </div> 

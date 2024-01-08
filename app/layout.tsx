@@ -3,9 +3,11 @@ import { Inter } from 'next/font/google'
 // import './globals.css'
 import '@/public/css/tailwind.css'
 import '@/public/libs/icofont/icofont.min.css'
+import * as React from "react";
 
+import {Providers} from "./providers";
 
-
+import {NextUIProvider} from "@nextui-org/react";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#ECEFF2] dark:bg-gray-900"> 
+        <Providers>
           {children}
+        </Providers>
       </body>
     </html>
   )

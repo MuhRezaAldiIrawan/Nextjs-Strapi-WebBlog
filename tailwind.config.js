@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+import {nextui} from "@nextui-org/react";
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -73,5 +76,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),[nextui()]],
 }
