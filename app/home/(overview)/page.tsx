@@ -9,7 +9,6 @@ import {AddBlog} from "../../ui/components/actionButton"
 import {fetchGenres} from "../../api/genre"
 
 
-
 export default async function Page({
     searchParams,
 }: {
