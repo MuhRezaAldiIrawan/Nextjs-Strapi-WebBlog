@@ -25,7 +25,6 @@ export default async function Page({
     const { data: relatedBlogs } = await getRelatedBlog(query, currentPage);
 
 
-
     return (
         <>
             <AddBlog />
