@@ -4,7 +4,8 @@ import Link from "next/link";
 import { Label } from "@/components/ui/label"
 import { GenresField, AuthorsField } from '@/app/lib/definitions'
 import { createblog } from '@/app/lib/actions';
-import useFormState from "react-dom"
+import { useFormState } from 
+    import { SERVER_PROPS_EXPORT_ERROR } from "next/dist/lib/constants";
 
 
 
@@ -12,7 +13,10 @@ import useFormState from "react-dom"
 export default async function CreateForm({ getGenres, getAuthors }: { getGenres: GenresField[], getAuthors: AuthorsField[] }) {
 
     const initialState = { message: null, errors: {} };
-    const [state, dispatch] = useFormState(createblog,initialState);
+
+    const { state, dispatch } = useFormState(createblog, initialState);
+
+
     const dateFormatter = new Intl.DateTimeFormat('id', { day: 'numeric', month: 'long', weekday: "long", year: "numeric" });
 
     return (
@@ -28,7 +32,7 @@ export default async function CreateForm({ getGenres, getAuthors }: { getGenres:
                 </p>
             </div>
 
-            <form action={dispatch}>
+            {/* <form action={dispatch}>
                 <div className="grid-cols-2 gap-4 flex no-wrap">
                     <div className="w-full max-w-sm items-center gap-1.5 mt-5">
                         <Label htmlFor="email" className="mb-3">Title</Label>
@@ -120,7 +124,7 @@ export default async function CreateForm({ getGenres, getAuthors }: { getGenres:
                         </div>
                     ) : null}
                 </div>
-            </form>
+            </form> */}
 
         </div>
     );
